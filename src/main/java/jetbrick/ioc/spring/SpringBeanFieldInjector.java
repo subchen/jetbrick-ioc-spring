@@ -66,7 +66,7 @@ public final class SpringBeanFieldInjector implements FieldInjector {
     }
 
     @Override
-    public void set(Object object) throws Exception {
+    public void set(Object object) {
         Object value = appctx.getBean(name);
         if (value == null && required) {
             throw new IllegalStateException("Can't inject bean: " + name + " for field: " + field);

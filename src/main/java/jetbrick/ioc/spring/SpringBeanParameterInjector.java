@@ -63,10 +63,10 @@ public final class SpringBeanParameterInjector implements ParameterInjector {
     }
 
     @Override
-    public Object getObject() throws Exception {
+    public Object getObject() {
         Object value = appctx.getBean(name);
         if (value == null && required) {
-            throw new IllegalStateException("Can't inject parameter");
+            throw new IllegalStateException("Can't inject @SpringBean parameter: " + name);
         }
         return value;
     }
